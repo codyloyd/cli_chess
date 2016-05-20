@@ -1,0 +1,6 @@
+require "./game/pieces/Pawn"
+require "./game/pieces/Rook"
+require "./game/pieces/Bishop"
+require "./game/pieces/Knight"
+require "./game/pieces/King"
+require "./game/pieces/Queen"
