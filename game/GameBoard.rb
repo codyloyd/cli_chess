@@ -41,10 +41,16 @@ class GameBoard
 		#this method draws the CLI gameboard.  
 		#should iterate through the game_array and draw the correct
 		#piece on the board depending on the type and color of the piece
-		@game_array.each do |ary|
+		@game_array.each.with_index(1) do |ary,i|
 			nils_removed = ary.map { |x| x == nil ? x = "x" : x.to_s }
-			puts nils_removed.join(" ")
+			puts Rainbow("#{i} ").yellow + nils_removed.join(" ")
 		end
+		puts Rainbow("  a b c d e f g h").yellow
+	end
+
+	def move_piece(from,to)
+		@game_array[to[0]][to[1]] = @game_array[from[0]][from[1]]
+		@game_array[from[0]][from[1]] = nil
 	end
 end
 
