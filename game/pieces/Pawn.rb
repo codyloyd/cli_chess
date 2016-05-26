@@ -13,7 +13,6 @@ module GamePiece
 		end
 
 		def to_s
-			#this determines how the piece will be printed
 			if @color == "white"
 				return Rainbow("♟").blue
 			else

@@ -1,4 +1,4 @@
-require './GameBoard'
+require './game/GameBoard'
 require './game/pieces/game_piece_helper'
 
 describe "GameBoard" do 

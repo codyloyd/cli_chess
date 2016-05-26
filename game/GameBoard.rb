@@ -7,7 +7,6 @@ class GameBoard
 
 	def initialize
 		@game_array = create_game_array
-
 	end
 
 	def create_game_array
