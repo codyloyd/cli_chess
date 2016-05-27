@@ -1,5 +1,6 @@
 module GamePiece
 	class Bishop
+		attr_accessor :color, :position, :moves
 		def initialize(color,position)
 			@color = color
 			@position = position

@@ -1,5 +1,6 @@
 module GamePiece
 	class Rook
+		attr_accessor :color, :position, :moves
 		def initialize(color,position)
 			@color = color
 			@position = position

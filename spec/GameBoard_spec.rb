@@ -29,5 +29,8 @@ describe "GameBoard" do
 		it "clears the -from- space" do 
 			expect(game.game_array[1][0]).to eql(nil)
 		end 
+		it "updates the piece's position" do
+			expect(game.game_array[3][0].position).to eql([3,0])
+		end
 	end
 end
