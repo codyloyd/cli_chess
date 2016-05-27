@@ -7,6 +7,7 @@ class GameBoard
 
 	def initialize
 		@game_array = create_game_array
+		place_game_pieces
 	end
 
 	def create_game_array
@@ -48,12 +49,11 @@ class GameBoard
 		puts Rainbow("  a b c d e f g h").yellow
 	end
 
-	def move_piece(from,to)
+	def move_piece(array)
+		from = array[0]
+		to = array[1]
 		@game_array[to[0]][to[1]] = @game_array[from[0]][from[1]]
 		@game_array[from[0]][from[1]] = nil
 	end
 end
 
-game = GameBoard.new
-game.place_game_pieces
-game.draw_gameboard

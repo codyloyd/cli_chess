@@ -3,18 +3,6 @@ require './game/pieces/game_piece_helper'
 
 describe "GameBoard" do 
 	let(:game) {GameBoard.new}
-	describe "create_game_array" do
-		it "creates the correct array" do
-			expect(game.game_array).to eql([[nil,nil,nil,nil,nil,nil,nil,nil],
-											[nil,nil,nil,nil,nil,nil,nil,nil],
-											[nil,nil,nil,nil,nil,nil,nil,nil],
-											[nil,nil,nil,nil,nil,nil,nil,nil],
-											[nil,nil,nil,nil,nil,nil,nil,nil],
-											[nil,nil,nil,nil,nil,nil,nil,nil],
-											[nil,nil,nil,nil,nil,nil,nil,nil],
-											[nil,nil,nil,nil,nil,nil,nil,nil]])
-		end
-	end
 
 	describe "place_game_pieces" do 
 		it "places the pawns in the correct place" do
@@ -32,7 +20,7 @@ describe "GameBoard" do
 	describe "move_piece" do
 		before do 
 			game.place_game_pieces
-			game.move_piece([1,0],[3,0])
+			game.move_piece([[1,0],[3,0]])
 		end
 		it "moves piece" do
 			#expect an input of 2 array positions to move a peice from the first to the second
