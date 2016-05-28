@@ -17,8 +17,8 @@ module GamePiece
 				else
 					moves << [@pos[0]-1,@pos[1]] if @board.game_array[@pos[0]-1][@pos[1]] == nil
 				end
-				moves << [@pos[0]-1,@pos[1]- 1] if @board.game_array[@pos[0]-1][@pos[1]-1] != nil
-				moves << [@pos[0]-1,@pos[1]+ 1] if @board.game_array[@pos[0]-1][@pos[1]+1] != nil
+				moves << [@pos[0]-1,@pos[1]- 1] if @board.game_array[@pos[0]-1][@pos[1]-1] != nil && @board.game_array[@pos[0]-1][@pos[1]-1].color != @color
+				moves << [@pos[0]-1,@pos[1]+ 1] if @board.game_array[@pos[0]-1][@pos[1]+1] != nil && @board.game_array[@pos[0]-1][@pos[1]+1].color != @color
 			else
 				if @pos[0] == 1 
 					moves << [@pos[0]+1,@pos[1]] if @board.game_array[@pos[0]+1][@pos[1]] == nil
@@ -26,8 +26,8 @@ module GamePiece
 				else
 					moves << [@pos[0]+1,@pos[1]] if @board.game_array[@pos[0]+1][@pos[1]] == nil
 				end
-				moves << [@pos[0]+1,@pos[1]-1] if @board.game_array[@pos[0]+1][@pos[1]-1] != nil
-				moves << [@pos[0]+1,@pos[1]+1] if @board.game_array[@pos[0]+1][@pos[1]+1] != nil
+				moves << [@pos[0]+1,@pos[1]-1] if @board.game_array[@pos[0]+1][@pos[1]-1] != nil && @board.game_array[@pos[0]+1][@pos[1]-1].color != @color
+				moves << [@pos[0]+1,@pos[1]+1] if @board.game_array[@pos[0]+1][@pos[1]+1] != nil && @board.game_array[@pos[0]+1][@pos[1]+1].color != @color
 			end
 			moves
 		end
