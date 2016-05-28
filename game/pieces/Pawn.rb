@@ -1,10 +1,10 @@
+require "./game/pieces/gamepiece"
 module GamePiece
-	class Pawn 
-		attr_accessor :color, :pos
+	class Pawn < GamePiece
+		attr_accessor :char
 		def initialize(color,pos,board)
-			@color = color
-			@pos = pos
-			@board = board
+			super(color, pos, board)
+			@char = "♟"
 		end
 
 		def get_moves
@@ -31,12 +31,5 @@ module GamePiece
 			moves
 		end
 
-		def to_s
-			if @color == "white"
-				return Rainbow("♟").blue
-			else
-				return Rainbow("♟").red
-			end
-		end
 	end
 end

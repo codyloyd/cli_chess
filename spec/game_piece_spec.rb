@@ -39,7 +39,7 @@ describe "Pawn" do
 			context "capturing" do 
 				it "returns the move if there is a piece to capture" do 
 					pawn = game_board.game_array[6][4]
-					game_board.game_array[5][3] = Pawn.new("white",[5,3],game_board)
+					game_board.game_array[5][3] = Pawn.new("black",[5,3],game_board)
 					expect(pawn.get_moves).to include([5,3])
 				end
 			end
@@ -75,5 +75,19 @@ describe "Pawn" do
 				end
 			end
 		end
+	end
+
+	describe "check?" do
+		subject(:game_board) {GameBoard.new}
+		before do 
+			game_board.game_array[5][4] = King.new("black",[5,4],game_board)
+		end 
+		it "returns true if check" do
+			expect(game_board.game_array[6][5].check?).to eql(true)
+		end	
+		it "returns false if not check" do 
+			expect(game_board.game_array[6][7].check?).to eql(false)
+		end
+
 	end
 end

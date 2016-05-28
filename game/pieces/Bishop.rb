@@ -1,10 +1,8 @@
 module GamePiece
-	class Bishop
-		attr_accessor :color, :pos
+	class Bishop < GamePiece
 		def initialize(color,pos,board)
-			@color = color
-			@pos = pos
-			@board = board
+			super(color, pos, board)
+			@char = "♝"
 		end
 
 		def get_moves
@@ -80,14 +78,6 @@ module GamePiece
 				end
 			end
 			moves
-		end
-		def to_s
-			#this determines how the piece will be printed
-			if @color == "white"
-				return Rainbow("♝").blue
-			else
-				return Rainbow("♝").red
-			end
 		end
 	end
 end

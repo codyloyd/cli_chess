@@ -1,10 +1,8 @@
 module GamePiece
-	class Knight
-		attr_accessor :color, :pos
+	class Knight < GamePiece
 		def initialize(color,pos,board)
-			@color = color
-			@board = board
-			@pos = pos
+			super(color, pos, board)
+			@char = "♞"
 		end
 
 		def get_moves
@@ -21,14 +19,6 @@ module GamePiece
 				end
 			end
 			moves
-		end
-		def to_s
-			#this determines how the piece will be printed
-			if @color == "white"
-				return Rainbow("♞").blue
-			else
-				return Rainbow("♞").red
-			end
 		end
 	end
 end

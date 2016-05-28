@@ -1,24 +1,16 @@
 module GamePiece
-	class Queen
-		attr_accessor :color, :position, :moves
-		def initialize(color,position)
-			@color = color
-			@position = position
-			@moves = get_moves
+	class Queen < GamePiece
+		def initialize(color,pos,board)
+			super(color, pos, board)
+			@char = "♛"
 		end
 
 		def get_moves
-			# return all available moves in graph
-			# should make graph accessible so that it can be 
-			# called by the user when they are trying to make a move
+			# return all available moves in 2d array
+			# queen can move in any direction.. like the rook + the bishop
+			moves = []
+			moves
 		end
-		def to_s
-			#this determines how the piece will be printed
-			if @color == "white"
-				return Rainbow("♛").blue
-			else
-				return Rainbow("♛").red
-			end
-		end
+
 	end
 end
