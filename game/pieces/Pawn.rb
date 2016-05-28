@@ -1,11 +1,10 @@
 module GamePiece
 	class Pawn 
-		attr_accessor :color, :pos, :moves
+		attr_accessor :color, :pos
 		def initialize(color,pos,board)
 			@color = color
 			@pos = pos
 			@board = board
-			@moves = get_moves
 		end
 
 		def get_moves

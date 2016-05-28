@@ -28,14 +28,14 @@ class GameBoard
 		@game_array[0][4] = King.new("black",[0,4])
 		#then the black....
 		@game_array[6].fill { |x| Pawn.new("white",[6,x],self) }
-		@game_array[7][0] = Rook.new("white",[0,0])
-		@game_array[7][7] = Rook.new("white",[0,7])
-		@game_array[7][1] = Knight.new("white",[0,1],self)
-		@game_array[7][6] = Knight.new("white",[0,6],self)
-		@game_array[7][2] = Bishop.new("white",[0,2])
-		@game_array[7][5] = Bishop.new("white",[0,5])
-		@game_array[7][4] = Queen.new("white",[0,3])
-		@game_array[7][3] = King.new("white",[0,4])
+		@game_array[7][0] = Rook.new("white",[7,0])
+		@game_array[7][7] = Rook.new("white",[7,7])
+		@game_array[7][1] = Knight.new("white",[7,1],self)
+		@game_array[7][6] = Knight.new("white",[7,6],self)
+		@game_array[7][2] = Bishop.new("white",[7,2])
+		@game_array[7][5] = Bishop.new("white",[7,5])
+		@game_array[7][4] = Queen.new("white",[7,3])
+		@game_array[7][3] = King.new("white",[7,4])
 	end
 
 	def draw_gameboard
