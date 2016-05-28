@@ -8,9 +8,6 @@ module GamePiece
 		end
 
 		def get_moves
-			# return all available moves in 2d array
-			# rooks can move vertically or horizonally in any direction until they hit a game piece
-			# should travel up and down from each element of the @pos looking for the presense of another piece
 			moves = []
 			if @pos[0]< 7
 				(@pos[0]+1).upto(7) do |x|

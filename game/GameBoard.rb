@@ -22,8 +22,8 @@ class GameBoard
 		@game_array[0][7] = Rook.new("black",[0,7],self)
 		@game_array[0][1] = Knight.new("black",[0,1],self)
 		@game_array[0][6] = Knight.new("black",[0,6],self)
-		@game_array[0][2] = Bishop.new("black",[0,2])
-		@game_array[0][5] = Bishop.new("black",[0,5])
+		@game_array[0][2] = Bishop.new("black",[0,2],self)
+		@game_array[0][5] = Bishop.new("black",[0,5],self)
 		@game_array[0][3] = Queen.new("black",[0,3])
 		@game_array[0][4] = King.new("black",[0,4])
 		#then the black....
@@ -32,8 +32,8 @@ class GameBoard
 		@game_array[7][7] = Rook.new("white",[7,7],self)
 		@game_array[7][1] = Knight.new("white",[7,1],self)
 		@game_array[7][6] = Knight.new("white",[7,6],self)
-		@game_array[7][2] = Bishop.new("white",[7,2])
-		@game_array[7][5] = Bishop.new("white",[7,5])
+		@game_array[7][2] = Bishop.new("white",[7,2],self)
+		@game_array[7][5] = Bishop.new("white",[7,5],self)
 		@game_array[7][4] = Queen.new("white",[7,3])
 		@game_array[7][3] = King.new("white",[7,4])
 	end
