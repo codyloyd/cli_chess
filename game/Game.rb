@@ -16,7 +16,15 @@ class Game
 	end
 
 	def player_turn(player)
-		@game_board.move_piece(player.input_to_array(get_input(player)))
+		input = get_input(player)
+		move_array = player.input_to_array(input)
+		moves = @game_board.game_array[move_array[0][0]][move_array[0][1]].get_moves
+		if moves.include?(move_array[1])
+			@game_board.move_piece(move_array)
+		else
+			puts "invalid move"
+			player_turn(player)
+		end
 	end
 
 	def game_loop

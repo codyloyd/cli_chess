@@ -11,7 +11,7 @@ class Player
 		#this method will convert the user's string (example a1,b3)
 		#into an appropriate input for GameBoard.move_piece ([0,1],[1,3])
 		array = input_string.split(",").map{ |x| x.scan(/./)}
-		array.map{ |x,y| [y.to_i - 1, x.ord - 97] }
+		array.map{ |x,y| [8 - y.to_i, x.ord - 97] }
 	end
 
 	def check_if_own_piece

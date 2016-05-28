@@ -13,7 +13,7 @@ describe "Player" do
 	end
 	describe "input_to_array" do
 		it "returns correct arrays" do 
-			expect(player_1.input_to_array("a2,a3")).to eql([[1,0],[2,0]]) 
+			expect(player_1.input_to_array("a2,a3")).to eql([[6,0],[5,0]]) 
 		end
 	end
 end
