@@ -18,8 +18,8 @@ class GameBoard
 	def place_game_pieces
 		# white pieces first
 		@game_array[1].fill { |x| Pawn.new("black",[1,x],self) }
-		@game_array[0][0] = Rook.new("black",[0,0])
-		@game_array[0][7] = Rook.new("black",[0,7])
+		@game_array[0][0] = Rook.new("black",[0,0],self)
+		@game_array[0][7] = Rook.new("black",[0,7],self)
 		@game_array[0][1] = Knight.new("black",[0,1],self)
 		@game_array[0][6] = Knight.new("black",[0,6],self)
 		@game_array[0][2] = Bishop.new("black",[0,2])
@@ -28,8 +28,8 @@ class GameBoard
 		@game_array[0][4] = King.new("black",[0,4])
 		#then the black....
 		@game_array[6].fill { |x| Pawn.new("white",[6,x],self) }
-		@game_array[7][0] = Rook.new("white",[7,0])
-		@game_array[7][7] = Rook.new("white",[7,7])
+		@game_array[7][0] = Rook.new("white",[7,0],self)
+		@game_array[7][7] = Rook.new("white",[7,7],self)
 		@game_array[7][1] = Knight.new("white",[7,1],self)
 		@game_array[7][6] = Knight.new("white",[7,6],self)
 		@game_array[7][2] = Bishop.new("white",[7,2])

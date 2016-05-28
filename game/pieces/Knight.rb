@@ -8,11 +8,6 @@ module GamePiece
 		end
 
 		def get_moves
-			# return all available moves in 2d array
-			# legal moves = [[1,2],[-1,2],[1,-2],[-1,-2],[2,1],[-2,1],[2,-1],[-2,-1]] 
-			# knights can move in any direction so long as their move is on the 
-			# board and it's not landing on one of their own pieces
-			# moves should equal @position manipulated by the above array...
 			legal_moves = [[1,2],[-1,2],[1,-2],[-1,-2],[2,1],[-2,1],[2,-1],[-2,-1]] 
 			moves = []
 			legal_moves.each do |x,y|

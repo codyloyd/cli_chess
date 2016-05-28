@@ -1,16 +1,66 @@
 module GamePiece
 	class Rook
-		attr_accessor :color, :position, :moves
-		def initialize(color,position)
+		attr_accessor :color, :pos
+		def initialize(color,pos,board)
 			@color = color
-			@position = position
-			@moves = get_moves
+			@pos = pos
+			@board = board
 		end
 
 		def get_moves
-			# return all available moves in graph
-			# should make graph accessible so that it can be 
-			# called by the user when they are trying to make a move
+			# return all available moves in 2d array
+			# rooks can move vertically or horizonally in any direction until they hit a game piece
+			# should travel up and down from each element of the @pos looking for the presense of another piece
+			moves = []
+			if @pos[0]< 7
+				(@pos[0]+1).upto(7) do |x|
+					if @board.game_array[x][pos[1]] == nil
+						moves << [x,pos[1]]
+					else
+						if @board.game_array[x][pos[1]].color != @color
+							moves << [x,pos[1]] 
+						end
+						break
+					end
+				end
+			end
+			if @pos[0] > 0
+				(@pos[0]-1).downto(0) do |x|
+					if @board.game_array[x][pos[1]] == nil
+						moves << [x,pos[1]]
+					else
+						if @board.game_array[x][pos[1]].color != @color
+							moves << [x,pos[1]] 
+						end
+						break
+					end
+				end
+			end
+			if @pos[1]< 7
+				(@pos[1]+1).upto(7) do |x|
+					if @board.game_array[pos[0]][x] == nil
+						moves << [pos[0],x]
+					else
+						if @board.game_array[pos[0]][x].color != @color
+							moves << [pos[0],x]
+						end
+						break
+					end
+				end
+			end
+			if @pos[1] > 0
+				(@pos[1]-1).downto(0) do |x|
+					if @board.game_array[pos[0]][x] == nil
+						moves << [pos[0],x]
+					else
+						if @board.game_array[pos[0]][x].color != @color
+							moves << [pos[0],x] 
+						end
+						break
+					end
+				end
+			end
+			moves
 		end
 		def to_s
 			#this determines how the piece will be printed
