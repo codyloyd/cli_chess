@@ -26,7 +26,7 @@ class Game
 		input = get_input(player)
 		return if input == "resign"
 		move_array = player.input_to_array(input)
-		moves = @game_board.game_array[move_array[0][0]][move_array[0][1]].get_moves
+		moves = @game_board.game_array[move_array[0][0]][move_array[0][1]].get_and_validate_moves
 		if moves.include?(move_array[1])
 			@game_board.move_piece(move_array)
 		else

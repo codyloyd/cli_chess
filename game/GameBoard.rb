@@ -40,7 +40,7 @@ class GameBoard
 	end
 
 	def draw_gameboard
-		system "clear"
+		# system "clear"
 		@game_array.each_with_index do |ary,i|
 			nils_removed = ary.map { |x| x == nil ? x = Rainbow("☐").silver : x.to_s }
 			puts Rainbow("#{8-i} ").yellow + nils_removed.join(" ")
@@ -51,18 +51,19 @@ class GameBoard
 		end
 	end
 
-	def move_piece(array)
-		from = array[0]
-		to = array[1]
-		if @game_array[from[0]][from[1]].get_moves.include?(to)
-			@game_array[to[0]][to[1]] = @game_array[from[0]][from[1]]
-			@game_array[from[0]][from[1]] = nil
-			@game_array[to[0]][to[1]].pos = to
+	def move_piece(move_array,game_board=@game_array)
+		from = move_array[0]
+		to = move_array[1]
+		if game_board[from[0]][from[1]].get_moves.include?(to)
+			game_board[to[0]][to[1]] = game_board[from[0]][from[1]]
+			game_board[from[0]][from[1]] = nil
+			game_board[to[0]][to[1]].pos = to
 		end
+		game_array
 	end
 
-	def is_check?
-		@game_array.each do |row|
+	def is_check?(game_array  = @game_array)
+		game_array.each do |row|
 			row.each do |space|
 				if space != nil
 					if space.check?[0] == true
@@ -73,5 +74,19 @@ class GameBoard
 		end
 		return [false,nil]
 	end
+
+	def checkmate?(color)
+		game_array.each do |row|
+			row.each do |space|
+				if space != nil
+					if space.color == color && space.get_and_validate_moves.any?
+						return false
+					end
+				end
+			end
+		end
+		return true
+	end
+
 end
 
